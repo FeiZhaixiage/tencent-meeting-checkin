@@ -134,9 +134,11 @@ def save():
             time_now = time.strftime("%m-%d %H:%M", time.localtime())
             ws.write(0,write_place,time_now)  #写入时间
             new_excel.save('签到表.xls')
-    
+            
+
 
 root = Tk()
+root.iconbitmap('ico.ico')
 root.geometry('460x240')
 root.title('优雅点名')
 
@@ -153,16 +155,31 @@ out_box = Text(root)
 out_box.place(x=10, y=40, height=190, width=360)
 
 title_choose = Label(root,text='模式选择')
-title_choose.place(x=390, y=70,)
+title_choose.place(x=390, y=60,)
 
 var = IntVar()
 rd1 = Radiobutton(root,text="啰嗦模式",variable=var,value=0,command=type)
-rd1.place(x=375, y=100)
+rd1.place(x=375, y=90)
 
 rd2 = Radiobutton(root,text="简洁模式",variable=var,value=1,command=type)
-rd2.place(x=375, y=120)
+rd2.place(x=375, y=110)
 
 start_btn = Button(root, text='输出表格', command=save)
-start_btn.place(x=390, y=160, height=20, width=50)
+start_btn.place(x=390, y=150, height=20, width=50)
+
+title_choose = Label(root,text='版本:4.0')
+title_choose.place(x=410, y=220,)
+
+out_box.insert(END,'本软件使用python编写')
+out_box.insert(END,'\n')
+out_box.insert(END,'我的项目开源地址')
+out_box.insert(END,'\n')
+out_box.insert(END,'https://github.com/zpxrainbowdash/tencent-meeting-checkin')
+out_box.insert(END,'\n')
+out_box.insert(END,'您可访问上方链接取得最新版本')
+out_box.insert(END,'\n')
+out_box.insert(END,'非常感谢您使用本软件')
+out_box.insert(END,'\n')
+out_box.insert(END,'版本号:4.0')
 
 root.mainloop()
