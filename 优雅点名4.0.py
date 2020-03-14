@@ -138,7 +138,6 @@ def save():
 
 
 root = Tk()
-root.iconbitmap('ico.ico')
 root.geometry('460x240')
 root.title('优雅点名')
 
