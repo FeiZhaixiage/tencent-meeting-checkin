@@ -1,9 +1,5 @@
-#优雅点名4.0 船新升级！！！！
-#去除编辑py文件
-#支持从xls文件导入学生信息
-#新增导出签到名单
-#加入文件检测功能
-#输出栏更改为单次输出的结果
+#优雅点名4.1修复已知bug
+#无法显示最后一名同学的签到信息
 
 import xlrd  #读表格
 import xlwt  #写表格
@@ -53,7 +49,7 @@ def main():
             i = 0
             choose = var.get()
             if choose == 0:
-                while i < len(name_list) - 1:
+                while i < len(name_list):
                     if name_list[i] in input_list:
                         txt =name_list[i]+'√''\n'
                         out_box.insert(END,txt)
@@ -64,7 +60,7 @@ def main():
                     i = i+1
 
             elif choose == 1:
-                while i < len(name_list) - 1:
+                while i < len(name_list):
                     if name_list[i] in input_list:
                         ontime_list.append(1)
                         ontime_list[member_ontime] = name_list[i]
@@ -165,6 +161,7 @@ rd2.place(x=375, y=110)
 
 start_btn = Button(root, text='输出表格', command=save)
 start_btn.place(x=390, y=150, height=20, width=50)
+
 
 title_choose = Label(root,text='版本:4.0')
 title_choose.place(x=410, y=220,)
