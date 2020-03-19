@@ -1,6 +1,6 @@
-#优雅点名5.0 船新升级！！！！
-#支持选择文件进行导入表格
-#表格记忆功能上线
+#优雅点名5.1
+#修复了第一次无法输出的BUG
+
 
 import xlrd  #读表格
 import xlwt  #写表格
@@ -27,6 +27,12 @@ def type():
 #清除输入
 def clean():
     text_box.delete(0, END)
+
+
+#def creat_xls():
+
+
+    
 #文本输出
 def main():
     out_box.delete(1.0,END)
@@ -37,7 +43,7 @@ def main():
             worksheet = create.add_sheet('名单')
             worksheet.write(0,0,'姓名')
             worksheet.write(1,0,' ')
-            create.save(input_file)
+            create.save('签到表.xls')
             tkinter.messagebox.showinfo('提示','签到表已创建''\n''请前往编辑')
         else:
             tkinter.messagebox.showinfo('提示','操作已取消')
@@ -93,13 +99,11 @@ def main():
                 late = ' '.join(late_list) + '\n'
                 out_box.insert(END,late)
 
+
 def select_box():
-    comvalue=tkinter.StringVar() 
-    select=ttk.Combobox(root,textvariable=comvalue) 
     select["values"]=(user_ini)  
-    select.current(0)  
-    select.bind("<<ComboboxSelected>>",select_set)
-    select.place(x=10, y=40, height=20, width=360)
+    select.current(0)
+
 
 #表格选择
 def select_path():
@@ -107,13 +111,11 @@ def select_path():
     path = filedialog.askopenfilename()
     write_ini(path)
     read_ini()
-    select.destroy()
     select_box()
     
 #选择选项
 def select_set(*args):
     global input_file
-    print(select.get())
     input_file = select.get()
     
 
@@ -238,7 +240,7 @@ if os.path.exists("confing.ini") == False:
      
 #定义路径
 user_ini = []
-input_file = None
+input_file = 'eee'
 read_ini()
 
 #主窗口
@@ -259,7 +261,7 @@ start_btn.place(x=375, y=40, height=20, width=80)
 
 comvalue=tkinter.StringVar() 
 select=ttk.Combobox(root,textvariable=comvalue) 
-select["values"]=(user_ini)  
+select_box() 
 select.current(0)  
 select.bind("<<ComboboxSelected>>",select_set)
 select.place(x=10, y=40, height=20, width=360)
@@ -270,28 +272,25 @@ start_btn = Button(root, text='清空输入', command=clean)
 start_btn.place(x=375, y=70, height=20, width=80)
 
 out_box = Text(root)
-out_box.place(x=10, y=70, height=190, width=360)
+out_box.place(x=10, y=70, height=200, width=360)
+
+#start_btn = Button(root, text='创建表格', command=creat_xls)
+#start_btn.place(x=375, y=100, height=20, width=80)
 
 title_choose = Label(root,text='模式选择')
-title_choose.place(x=390, y=100,)
+title_choose.place(x=390, y=120,)
 
 var = IntVar()
 rd1 = Radiobutton(root,text="啰嗦模式",variable=var,value=0,command=type)
-rd1.place(x=375, y=130)
+rd1.place(x=375, y=140)
 
 rd2 = Radiobutton(root,text="简洁模式",variable=var,value=1,command=type)
-rd2.place(x=375, y=150)
+rd2.place(x=375, y=160)
 
 start_btn = Button(root, text='输出表格', command=save)
 start_btn.place(x=390, y=190, height=20, width=50)
 
-title_choose = Label(root,text='高一三班')
-title_choose.place(x=390, y=215,)
-
-title_choose = Label(root,text='赵埔渲')
-title_choose.place(x=395, y=235,)
-
-title_choose = Label(root,text='版本:5.0')
+title_choose = Label(root,text='版本:5.1')
 title_choose.place(x=410, y=260,)
 
 out_box.insert(END,'本软件使用python编写')
@@ -308,15 +307,9 @@ out_box.insert(END,'本软件只支持xls文件')
 out_box.insert(END,'\n')
 out_box.insert(END,'放入其他文件会导致软件错误请勿尝试！！！')
 out_box.insert(END,'\n')
-out_box.insert(END,'已知BUG：')
+out_box.insert(END,'修复了第一次无法输出的BUG')
 out_box.insert(END,'\n')
-out_box.insert(END,'第一次运行时无法输出任何内容')
-out_box.insert(END,'\n')
-out_box.insert(END,'解决办法：')
-out_box.insert(END,'\n')
-out_box.insert(END,'关闭程序重新打开')
-out_box.insert(END,'\n')
-out_box.insert(END,'版本号:5.0')
+out_box.insert(END,'版本号:5.1')
 
 root.mainloop()
 
