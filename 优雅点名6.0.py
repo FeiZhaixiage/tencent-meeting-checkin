@@ -27,10 +27,10 @@ from tkinter import ttk
 
 #打开网页
 def open_github():
-    web.open('https://github.com/zpxrainbowdash')
+    web.open('https://github.com/FeiZhaixiage')
 
 def open_project_web():
-    web.open('https://github.com/zpxrainbowdash/tencent-meeting-checkin/releases')
+    web.open('https://github.com/FeiZhaixiage/tencent-meeting-checkin/releases/latest')
 
 #引导关闭
 def first_exit():
@@ -261,7 +261,7 @@ if os.path.exists("confing.ini") == False:
     about.insert(END,'\n')
     about.insert(END,'我的项目开源地址')
     about.insert(END,'\n')
-    about.insert(END,'https://github.com/zpxrainbowdash/tencent-meeting-checkin')
+    about.insert(END,'https://github.com/FeiZhaixiage/tencent-meeting-checkin')
     about.insert(END,'\n')
     about.insert(END,'您可访问上方链接取得最新版本')
     about.insert(END,'\n')
@@ -320,7 +320,7 @@ input_file = '签到表.xls'
 read_ini()
 
 #剪切板内容创建
-check_code = "https://github.com/zpxrainbowdash/tencent-meeting-checkin"
+check_code = "https://github.com/FeiZhaixiage/tencent-meeting-checkin"
 write_clipboard = '时间戳:' + str(time.time()) + "\n识别码:" + check_code + '\n现在可以签到了' 
 
 #主窗口
@@ -387,7 +387,7 @@ out_box.insert(END,'本软件使用python编写')
 out_box.insert(END,'\n')
 out_box.insert(END,'我的项目开源地址')
 out_box.insert(END,'\n')
-out_box.insert(END,'https://github.com/zpxrainbowdash/tencent-meeting-checkin')
+out_box.insert(END,'https://github.com/FeiZhaixiage/tencent-meeting-checkin/releases/latest')
 out_box.insert(END,'\n')
 out_box.insert(END,'您可访问上方链接取得最新版本')
 out_box.insert(END,'\n')
